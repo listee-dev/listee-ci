@@ -1,0 +1,5 @@
+# Default container architecture for Apple Silicon
+--container-architecture linux/amd64
+
+# Default image mapping (optional)
+-P ubuntu-latest=catthehacker/ubuntu:act-latest

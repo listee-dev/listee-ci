@@ -1,0 +1,20 @@
+name: actionlint
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/*.yml"
+      - ".github/workflows/*.yaml"
+      - ".github/actions/**"
+      - "AGENTS.md"
+jobs:
+  actionlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Run actionlint
+        uses: reviewdog/action-actionlint@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-check
+          filter_mode: nofilter
+          actionlint_flags: "-color -shellcheck="

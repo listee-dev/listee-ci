@@ -1,0 +1,11 @@
+name: typecheck
+on:
+  workflow_call:
+jobs:
+  typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: ./.github/actions/setup-bun
+      - name: TypeScript (noEmit fallback)
+        run: bun x tsc -b || bun x tsc --noEmit

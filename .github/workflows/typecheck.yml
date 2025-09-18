@@ -1,11 +1,15 @@
 name: typecheck
 on:
   workflow_call:
+permissions:
+  contents: read
 jobs:
   typecheck:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          persist-credentials: false
       - uses: ./.github/actions/setup-bun
       - name: TypeScript (noEmit fallback)
         run: bun x tsc -b || bun x tsc --noEmit

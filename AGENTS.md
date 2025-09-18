@@ -12,6 +12,7 @@
   - `act -j test -W .github/workflows/test.yml --container-architecture linux/amd64`
   - `act -j typecheck -W .github/workflows/typecheck.yml --container-architecture linux/amd64`
 - Optional static analysis: `actionlint`.
+- Pin verification: run `pinact run --check` locally or via the `pinact.yml` workflow.
 
 ## Local act Configuration
 - Copy `actrc.example` to your OS‑specific config to omit the architecture flag:
@@ -40,4 +41,4 @@
 
 ## Security and Configuration Notes
 - `release.yml` requires the `NPM_TOKEN` to be provided by the caller. Permissions are minimized to `contents` and `pull-requests`.
-- Do not log sensitive information. Using stable tags helps reduce supply chain risks.
+- Do not log sensitive information. Using stable tags helps reduce supply chain risks; `pinact` enforcement ensures commits stay pinned.

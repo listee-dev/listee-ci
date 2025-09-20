@@ -3,6 +3,7 @@ on:
   workflow_call:
     inputs:
       environment:
+        type: string
         description: "GitHub environment to target for npm trusted publishing"
         required: false
         default: production

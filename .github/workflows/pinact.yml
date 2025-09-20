@@ -27,7 +27,7 @@ jobs:
           skip_push: "true"
         # pinact-action reports results via GitHub check; we interpret outcome below
       - name: Suggest remediation when pinact fails
-        if: steps.pinact.outcome == "failure"
+        if: steps.pinact.outcome == 'failure'
         run: |
           echo '::error::Some GitHub Actions are not pinned to commit SHAs.'
           echo '::error::Fix steps:'

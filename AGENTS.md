@@ -40,5 +40,5 @@
 - PRs should include purpose, key changes, impact scope, and verification instructions (`act` command examples). Link relevant issues.
 
 ## Security and Configuration Notes
-- `release.yml` requires the `NPM_TOKEN` to be provided by the caller. Permissions are minimized to `contents` and `pull-requests`.
+- `release.yml` uses npm Trusted Publishing (OIDC). Ensure the target repository/environment is registered as a Trusted Publisher and grants `id-token` permission.
 - Do not log sensitive information. Using stable tags helps reduce supply chain risks; `pinact` enforcement ensures commits stay pinned.

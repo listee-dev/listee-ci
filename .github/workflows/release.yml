@@ -1,20 +1,29 @@
 name: release
 on:
   workflow_call:
-    secrets:
-      NPM_TOKEN:
-        required: true
+    inputs:
+      environment:
+        description: "GitHub environment to target for npm trusted publishing"
+        required: false
+        default: production
 permissions:
   contents: write
   pull-requests: write
+  id-token: write
 jobs:
   release:
     runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           persist-credentials: false
       - uses: ./.github/actions/setup-bun
+      - name: Ensure npm 11.5.1+
+        run: |
+          corepack enable
+          corepack prepare npm@11.5.1 --activate
+          npm --version
       - name: Create Release PR or Publish
         uses: changesets/action@e0145edc7d9d8679003495b11f87bd8ef63c0cba # v1.5.3
         with:
@@ -22,4 +31,3 @@ jobs:
           publish: bunx changeset publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

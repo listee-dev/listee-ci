@@ -23,12 +23,13 @@ jobs:
   # Release via Changesets (requires npm token in caller repo)
   release:
     uses: listee-dev/listee-ci/.github/workflows/release.yml@v1
-    secrets:
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    with:
+      environment: production
 ```
 
 Notes
 - Runners: `ubuntu-latest` recommended. External actions are pinned to full-length commit SHAs via `pinact` to mitigate tag rewrite attacks.
+- npm releases use Trusted Publishing (OIDC); ensure you whitelist the workflow + environment in npm and no `NPM_TOKEN` secret is required.
 - The internal Bun setup is packaged as a composite action and referenced relatively for portability.
 
 ## Local Development
@@ -43,7 +44,7 @@ Notes
 - In the consumer repo, add a changeset per meaningful change: `bunx changeset` (select bump type and packages).
 - Commit the generated file under `.changeset/` and open a PR.
 - After merge to the default branch, the `release.yml` job creates a “Version Packages” PR.
-- Merge that PR to publish to npm. Requires `NPM_TOKEN` secret in the consumer repo.
+- Merge that PR to publish to npm. Configure npm Trusted Publishing for the repository/environment instead of providing `NPM_TOKEN`.
 - Local preview: `bunx changeset status`. Manual flows: `bunx changeset version` then `bunx changeset publish`.
 
 ## Contributing

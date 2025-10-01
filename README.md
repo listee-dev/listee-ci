@@ -3,11 +3,11 @@
 [![actionlint](https://github.com/listee-dev/listee-ci/actions/workflows/actionlint.yml/badge.svg?branch=main)](https://github.com/listee-dev/listee-ci/actions/workflows/actionlint.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-Reusable GitHub Actions workflows for the listee-dev organization — Bun, Biome, Vitest, and Changesets out of the box.
+Reusable GitHub Actions workflows for the listee-dev organization — Bun, Biome, Bun test, and Changesets out of the box.
 
 ## Workflows
 - `lint.yml`: Run Biome (`bun x biome ci .`).
-- `test.yml`: Run Vitest with coverage.
+- `test.yml`: Run Bun test.
 - `typecheck.yml`: Run TypeScript project references (fallback to `--noEmit`).
 - `release.yml`: Changesets release (opens PR or publishes to npm).
 - `pinact.yml`: Validate that reusable workflows reference full-length commit SHAs.

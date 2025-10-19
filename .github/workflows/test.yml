@@ -11,5 +11,7 @@ jobs:
         with:
           persist-credentials: false
       - uses: listee-dev/listee-ci/.github/actions/setup-bun@bc6b8ec0818a0e52fdfbe3571ffde0678d628e31
+      - name: Bun build
+        run: bun run build
       - name: Bun test
         run: bun test

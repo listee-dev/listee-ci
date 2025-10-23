@@ -9,7 +9,7 @@ Reusable GitHub Actions workflows for the listee-dev organization — Bun, Biome
 - `lint.yml`: Run Biome (`bun x biome ci .`).
 - `test.yml`: Run Bun test.
 - `typecheck.yml`: Run TypeScript project references (fallback to `--noEmit`).
-- `release.yml`: Changesets release (opens PR or publishes to npm).
+- `release.yml`: Changesets release (opens PR or publishes to npm via `npx` and npm@latest).
 - `pinact.yml`: Validate that reusable workflows reference full-length commit SHAs.
 
 ## Usage (in a consumer repository)
@@ -29,7 +29,8 @@ jobs:
 
 Notes
 - Runners: `ubuntu-latest` recommended. External actions are pinned to full-length commit SHAs via `pinact` to mitigate tag rewrite attacks.
-- npm releases use Trusted Publishing (OIDC); ensure you whitelist the workflow + environment in npm and no `NPM_TOKEN` secret is required.
+- npm releases use Trusted Publishing (OIDC). Configure npm to trust `listee-dev/listee-libs`’s `ci.yml` (or the relevant caller) and ensure each published package has matching `repository` metadata.
+- The release workflow installs npm@latest in a user prefix and runs Changesets through `npx`, so repositories must have `@changesets/cli` listed (e.g., via workspace dependencies).
 - The internal Bun setup is packaged as a composite action and referenced relatively for portability.
 
 ## Local Development

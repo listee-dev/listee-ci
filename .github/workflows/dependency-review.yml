@@ -14,30 +14,11 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Dependency Review
-        uses: actions/dependency-review-action@v4
+        uses: actions/dependency-review-action@3b139cfc5fae8b618d3eae3675e383bb1769c019 # v4.5.0
         with:
           license-check: true
-
-          allow-licenses: |
-            MIT
-            BSD-2-Clause
-            BSD-3-Clause
-            Apache-2.0
-            ISC
-            CC0-1.0
-            Unlicense
-
-          warn-licenses: |
-            LGPL-2.0
-            LGPL-2.1
-            LGPL-3.0
-            MPL-2.0
-            CDDL-1.0
-            EPL-1.0
-            EPL-2.0
-            Artistic-2.0
-            Public-Domain
-
+          # Upstream action forbids mixing allow-licenses with deny-licenses.
+          # Maintain a single deny-list so the workflow enforces these blocks.
           deny-licenses: |
             GPL-1.0
             GPL-2.0

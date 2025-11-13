@@ -17,18 +17,6 @@ jobs:
         uses: actions/dependency-review-action@3b139cfc5fae8b618d3eae3675e383bb1769c019 # v4.5.0
         with:
           license-check: true
-          # Upstream action forbids mixing allow-licenses with deny-licenses.
-          # Maintain a single deny-list so the workflow enforces these blocks.
-          deny-licenses: |
-            GPL-1.0
-            GPL-2.0
-            GPL-3.0
-            AGPL-1.0
-            AGPL-3.0
-            SSPL-1.0
-            BUSL-1.1
-            Elastic License 2.0
-            Confluent Community License
-            Commons Clause
-            proprietary
-            unknown
+          allow-licenses: MIT,BSD-2-Clause,BSD-3-Clause,Apache-2.0,ISC,CC0-1.0,Unlicense
+          warn-licenses: LGPL-2.0,LGPL-2.1,LGPL-3.0,MPL-2.0,CDDL-1.0,EPL-1.0,EPL-2.0,Artistic-2.0,Public-Domain
+          deny-licenses: GPL-1.0,GPL-2.0,GPL-3.0,AGPL-1.0,AGPL-3.0,SSPL-1.0,BUSL-1.1,"Elastic License 2.0","Confluent Community License","Commons Clause",proprietary,unknown

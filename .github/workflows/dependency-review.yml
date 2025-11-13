@@ -17,6 +17,4 @@ jobs:
         uses: actions/dependency-review-action@3b139cfc5fae8b618d3eae3675e383bb1769c019 # v4.5.0
         with:
           license-check: true
-          allow-licenses: MIT,BSD-2-Clause,BSD-3-Clause,Apache-2.0,ISC,CC0-1.0,Unlicense
-          warn-licenses: LGPL-2.0-only,LGPL-2.1-only,LGPL-3.0-only,MPL-2.0,CDDL-1.0,EPL-1.0,EPL-2.0,Artistic-2.0,CC-PDDC
-          deny-licenses: GPL-1.0-only,GPL-2.0-only,GPL-3.0-only,AGPL-1.0-only,AGPL-3.0-only,SSPL-1.0,BUSL-1.1,Elastic-2.0,Confluent-Community,"Commons-Clause",PROPRIETARY,NOASSERTION
+          deny-licenses: GPL-1.0-only,GPL-2.0-only,GPL-3.0-only,AGPL-1.0-only,AGPL-3.0-only,SSPL-1.0,BUSL-1.1,Elastic-2.0

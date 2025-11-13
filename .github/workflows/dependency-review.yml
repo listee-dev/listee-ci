@@ -18,5 +18,5 @@ jobs:
         with:
           license-check: true
           allow-licenses: MIT,BSD-2-Clause,BSD-3-Clause,Apache-2.0,ISC,CC0-1.0,Unlicense
-          warn-licenses: LGPL-2.0,LGPL-2.1,LGPL-3.0,MPL-2.0,CDDL-1.0,EPL-1.0,EPL-2.0,Artistic-2.0,Public-Domain
-          deny-licenses: GPL-1.0,GPL-2.0,GPL-3.0,AGPL-1.0,AGPL-3.0,SSPL-1.0,BUSL-1.1,"Elastic License 2.0","Confluent Community License","Commons Clause",proprietary,unknown
+          warn-licenses: LGPL-2.0-only,LGPL-2.1-only,LGPL-3.0-only,MPL-2.0,CDDL-1.0,EPL-1.0,EPL-2.0,Artistic-2.0,CC-PDDC
+          deny-licenses: GPL-1.0-only,GPL-2.0-only,GPL-3.0-only,AGPL-1.0-only,AGPL-3.0-only,SSPL-1.0,BUSL-1.1,Elastic-2.0,Confluent-Community,"Commons-Clause",PROPRIETARY,NOASSERTION

@@ -10,6 +10,6 @@ jobs:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           persist-credentials: false
-      - uses: listee-dev/listee-ci/.github/actions/setup-bun@e26d1c4f1d64259b0fbd7a3f8f2af3a3479f30bd
+      - uses: listee-dev/listee-ci/.github/actions/setup-bun@c8346825c9f76c2b3c21e9b4a04fbb9a4c3c5c4c
       - name: TypeScript (noEmit fallback)
         run: bun x tsc -b || bun x tsc --noEmit

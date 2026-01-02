@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           persist-credentials: false
-      - uses: listee-dev/listee-ci/.github/actions/setup-bun@c8346825c9f76c2b3c21e9b4a04fbb9a4c3c5c4c
+      - uses: listee-dev/listee-ci/.github/actions/setup-bun@e8b9cc21a4dfec25715dddccfd2b1269dba69dab
       - name: Install dependencies
         run: bun install --frozen-lockfile
       - name: Install latest npm

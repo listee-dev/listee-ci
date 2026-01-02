@@ -6,4 +6,9 @@ runs:
     - uses: oven-sh/setup-bun@735343b667d3e6f658f44d0eca948eb6282f2b76 # v2.0.2
     - name: Install deps (frozen)
       shell: bash
-      run: bun install --frozen-lockfile
+      run: |
+        if [ -f package.json ]; then
+          bun install --frozen-lockfile
+        else
+          echo "Skipping bun install: package.json not found."
+        fi
